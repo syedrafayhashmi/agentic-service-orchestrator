@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+python-dotenv
+beautifulsoup4
+requests
+langchain
+langchain-core
+langchain-google-genai
+langchain-google-vertexai
+pydantic
+retell-sdk
+PyJWT
+slowapi
+httpx
+python-multipart

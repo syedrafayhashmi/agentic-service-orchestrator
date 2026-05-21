@@ -1,0 +1,314 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Discovery Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#171c20",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#3f018e",
+                        "on-tertiary-fixed-variant": "#7f2b00",
+                        "tertiary-fixed": "#ffdbce",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f6faff",
+                        "surface-tint": "#0856cf",
+                        "text-primary": "#1F1F1F",
+                        "on-primary-fixed": "#001847",
+                        "on-tertiary-container": "#ffcfbe",
+                        "on-error": "#ffffff",
+                        "primary": "#0041a2",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "outline": "#737785",
+                        "surface": "#f6faff",
+                        "on-primary": "#ffffff",
+                        "surface-border": "#C4C7C5",
+                        "on-tertiary-fixed": "#370e00",
+                        "tertiary-fixed-dim": "#ffb599",
+                        "surface-container-highest": "#dfe3e8",
+                        "on-secondary-fixed-variant": "#5629a4",
+                        "on-surface": "#171c20",
+                        "surface-container-high": "#e4e9ed",
+                        "on-secondary-fixed": "#25005a",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#eaddff",
+                        "secondary": "#6e45be",
+                        "tertiary-container": "#a83b00",
+                        "tertiary": "#802b00",
+                        "surface-container": "#eaeef3",
+                        "aurora-purple": "#C67EFD",
+                        "surface-variant": "#dfe3e8",
+                        "error": "#ba1a1a",
+                        "aurora-blue": "#4285F4",
+                        "background": "#f6faff",
+                        "inverse-surface": "#2c3135",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "outline-variant": "#c3c6d6",
+                        "inverse-on-surface": "#edf1f6",
+                        "primary-container": "#0b57d0",
+                        "surface-dim": "#d6dadf",
+                        "secondary-container": "#ab82fe",
+                        "on-surface-variant": "#424654",
+                        "primary-fixed": "#dae2ff",
+                        "on-primary-container": "#ced9ff",
+                        "surface-container-low": "#f0f4f9",
+                        "error-container": "#ffdad6",
+                        "aurora-cyan": "#8AB4F8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max-width": "1280px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #F0F4F9;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .aurora-border {
+            position: relative;
+        }
+        .aurora-border::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 1.6rem; 
+            padding: 2px; 
+            background: linear-gradient(to right, #4285F4, #C67EFD, #8AB4F8); 
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: -1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low min-h-screen text-on-surface flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full fixed top-0 z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl shadow-sm border-b-0 hidden md:flex">
+<div class="flex items-center gap-2 text-primary dark:text-primary-fixed">
+
+<h1 class="font-headline-md text-headline-md font-bold bg-clip-text text-transparent bg-gradient-to-r from-aurora-blue via-aurora-purple to-aurora-cyan">Service AI</h1>
+</div>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Chat</a>
+<a class="text-primary dark:text-inverse-primary font-label-lg text-label-lg border-b-2 border-primary" href="#">Discover</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Logs</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">Activity</a>
+</nav>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling woman with dark hair in a well-lit studio setting. High key lighting, modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg3kvymM9q8cnUB4MHwl4aN93FM7YicnEt1A44KTHFIUYlO-x6vaW8ZW5YD7ZZNpc-flGcNmvA7VjYlXUbUqbIkVbl8fvJwKOwaN_DUmy2B6F4-348CUuUjV76iOD30ZAE63aagDbr-WgkQ0iTmVF1Ssr4yM51CkU3-pcyMWaCzQkkTyEVo7trBVa7vRiZJ6cI8ePhCF3MTOpY51vZYLJ1hzvpDBuqLQdKI9_XoOBUwd23KAzhGP_5ZllKdSvgCzw4pPfv7Lwmls4">
+</div>
+</header>
+<!-- Mobile Header -->
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface/80 backdrop-blur-xl shadow-sm md:hidden">
+<div class="flex items-center gap-2 text-primary">
+
+<h1 class="font-headline-md-mobile text-headline-md-mobile font-bold bg-clip-text text-transparent bg-gradient-to-r from-aurora-blue via-aurora-purple to-aurora-cyan">Service AI</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling woman with dark hair in a well-lit studio setting. High key lighting, modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDouKMxG68sRrhGSgbSkDjvB1DuhB-LZ-3nRAcJ-2nHqR1-SefmfzXSFTHDwiV1o9TIONIRyNR4WPo0FclYlwt25g_vD-lD3YjZQf5Q0PISmcg9CIWl5OraJbgxaWgIe8QpWE85tO8xs0WDVLoxhGVdyW_rnvqzwucFBn8FJrBNItnEC-3HH6OQxVZzLqx6SJedVe9Ep35oGD8XGfStMIplO6ewFohve6kkOVJQPCqUoWacuU9W8AVe9v3JOSRvxGci7jNckRS7DA4">
+</div>
+</header>
+<main class="flex-1 pt-20 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto w-full">
+<!-- Search & Filter Area -->
+<section class="mb-8">
+<div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text-primary mb-1">Discover Technicians</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">AI-matched professionals for your specific needs.</p>
+</div>
+<div class="w-full md:w-auto flex items-center bg-surface-container-lowest rounded-full px-4 py-2 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-border/20 focus-within:border-aurora-blue transition-colors">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none outline-none focus:ring-0 text-text-primary ml-2 w-full md:w-64 font-body-md text-body-md placeholder-outline" placeholder="What do you need help with?" type="text">
+<button class="ml-2 text-primary hover:bg-surface-container-high/50 p-1 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+<div class="flex gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide">
+<button class="bg-[#E3EDFD] text-[#001847] px-4 py-1.5 rounded-full font-label-md text-label-md whitespace-nowrap">HVAC Repair</button>
+<button class="bg-surface-container-lowest text-on-surface-variant border border-surface-border/20 px-4 py-1.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Plumbing</button>
+<button class="bg-surface-container-lowest text-on-surface-variant border border-surface-border/20 px-4 py-1.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Electrical</button>
+<button class="bg-surface-container-lowest text-on-surface-variant border border-surface-border/20 px-4 py-1.5 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Smart Home</button>
+</div>
+</section>
+<!-- Bento Grid for Results -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- AI Recommended (Hero Card) -->
+<div class="col-span-1 md:col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-3xl p-6 md:p-8 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] aurora-border flex flex-col md:flex-row gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<div class="bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5 border border-surface-border/20">
+<span class="material-symbols-outlined text-aurora-purple text-sm icon-fill">colors_spark</span>
+<span class="font-label-md text-label-md text-text-primary font-bold">Top Match</span>
+</div>
+</div>
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden shrink-0">
+<img alt="Technician" class="w-full h-full object-cover" data-alt="A professional male technician in a clean blue uniform, smiling confidently. Well-lit indoor setting, conveying trust and expertise. High quality, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdoN1B_E9npGhmF-ZJ4LuzZxiJCSfcuJ4Yh1VgmVxAVspsZF5JNKyY5b3u5O3abZD6QuzNKy25e5rE-uzxq1TPHdUrD7f9vlBg45e_3FjkmKtVzVyI7rhZOucvF2pgwPOE8Vw5Rrb636heRsv_huugzhCdbnc1uliO9z8YfDb6HH9asjNbdSsdYDjQhlnDmSjRZoqVmMD0Qa8ouNFWuhMVZc0ClAaWDUUgDQIIdBk9an_HB0VryhsSq5zMlg_Vgnml6DNCO3jVDTw">
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-text-primary">Marcus Vance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Master HVAC Technician • 12 yrs exp</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container rounded-lg px-2 py-1">
+<span class="material-symbols-outlined text-aurora-blue icon-fill text-lg">star</span>
+<span class="font-label-lg text-label-lg text-text-primary">4.9</span>
+<span class="text-on-surface-variant font-label-md text-label-md">(128)</span>
+</div>
+</div>
+<div class="bg-surface-bright rounded-xl p-4 mb-4 border border-surface-border/10">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-aurora-purple text-[16px]">psychology</span>
+<span class="font-label-md text-label-md text-text-primary font-bold">AI Reasoning</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Marcus has completed 34 similar smart-thermostat installations in your area with a 100% success rate. His schedule aligns perfectly with your requested Thursday morning slot.</p>
+</div>
+<div class="mt-auto flex flex-wrap gap-2 items-center justify-between">
+<div class="flex gap-2">
+<span class="bg-surface-container-high px-2 py-1 rounded text-xs font-label-md text-on-surface">Eco-Certified</span>
+<span class="bg-surface-container-high px-2 py-1 rounded text-xs font-label-md text-on-surface">Insured</span>
+</div>
+<button class="bg-[#0B57D0] hover:bg-primary text-white font-label-lg text-label-lg px-6 py-2 rounded-full transition-all shadow-sm hover:shadow-md active:scale-95">Book Now</button>
+</div>
+</div>
+</div>
+<!-- Standard Card 1 -->
+<div class="col-span-1 md:col-span-6 lg:col-span-4 bg-surface-container-lowest rounded-2xl p-5 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-container flex flex-col">
+<div class="flex items-start gap-4 mb-4">
+<img alt="Technician" class="w-16 h-16 rounded-full object-cover" data-alt="A female technician with safety glasses and a tool belt, looking focused in a workshop. Bright, clean industrial lighting. Modern and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB18Ho1HW5ZVdV3eZMN8MOUiTzDKSkjfBJGZrrO4MOgic6cOKcJjaSTHbfd0QSi6aOq7cklKntctH7vimivjeqfyOyhv1ufZ47TmvWh5bTntITaKOlNr8p_lYhxXI-dzI__dkDV_vN9PjHmOrZ94AfiGQs6SeLkbWy1Y7tN4tKV4rGfQ5L_nuTKcI42Vk5eXkLMdRccW6IedLeso--_pgjiFCHtQ9GrTbI52G1PU-dBU-colpsXY620lNL1Yc79JQlgbQ_QHj1wvr8">
+<div class="flex-1">
+<h4 class="font-label-lg text-label-lg text-text-primary">Sarah Jenkins</h4>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Electrical Specialist</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-aurora-blue icon-fill text-sm">star</span>
+<span class="font-label-md text-label-md text-text-primary">4.8</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-bright rounded-lg p-3 mb-4 text-xs font-body-md text-on-surface-variant border border-surface-border/10 flex-1">
+<div class="flex items-center gap-1 mb-1 text-aurora-purple">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span class="font-label-md font-semibold">Strong Match</span>
+</div>
+                    Highly rated for complex wiring. Available next week.
+                </div>
+<button class="w-full border border-surface-border text-on-surface font-label-lg text-label-lg py-2 rounded-full hover:bg-surface-container-lowest transition-colors">View Profile</button>
+</div>
+<!-- Standard Card 2 -->
+<div class="col-span-1 md:col-span-6 lg:col-span-4 bg-surface-container-lowest rounded-2xl p-5 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-container flex flex-col">
+<div class="flex items-start gap-4 mb-4">
+<img alt="Technician" class="w-16 h-16 rounded-full object-cover" data-alt="A male technician in casual workwear inspecting a smart home device. Bright, modern residential setting. Clean and trustworthy appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuynhdxFbpsoNjNxbYkbIQJnH-pq6DCzd8ZHJxKAEmrTmKvoB7L1r_qwVGbbKOpLX1XW-aOwNYj7HkhWDKeInQScbZwX-kBcaH3wXoSIDbMYbSiunbsGInmmleKSmRJ2u-Bz3Ju55qv3apEt7fl6ReaIpJdplEWnLIKbkLibJdxFCkJWguNY5E1803Jpl6ZWyZY4-aw4Xq0muJv_1dQiqDd3fa584KIiZZe9aMWpihmQxRZK72cx9Xj4bX0RC5UXZtRg7hYAXwDzQ">
+<div class="flex-1">
+<h4 class="font-label-lg text-label-lg text-text-primary">David Chen</h4>
+<p class="font-body-md text-body-md text-sm text-on-surface-variant">Smart Home Tech</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-aurora-blue icon-fill text-sm">star</span>
+<span class="font-label-md text-label-md text-text-primary">4.7</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-bright rounded-lg p-3 mb-4 text-xs font-body-md text-on-surface-variant border border-surface-border/10 flex-1">
+<div class="flex items-center gap-1 mb-1 text-aurora-purple">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span class="font-label-md font-semibold">Alternative Option</span>
+</div>
+                    Specializes in network setup. Slightly further distance.
+                </div>
+<button class="w-full border border-surface-border text-on-surface font-label-lg text-label-lg py-2 rounded-full hover:bg-surface-container-lowest transition-colors">View Profile</button>
+</div>
+<!-- Insights Card -->
+<div class="col-span-1 md:col-span-12 lg:col-span-8 bg-surface-container-low rounded-3xl p-6 border border-surface-border/10 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-aurora-blue">insights</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary">Market Insights</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Demand for HVAC specialists in your area is currently high due to seasonal changes. Booking 3-5 days in advance is recommended to secure optimal time slots.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-2 bg-surface/80 backdrop-blur-xl z-50 border-t border-outline-variant/20 pb-safe shadow-lg">
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform duration-150 p-2 rounded-xl w-16" href="#">
+    <span class="material-symbols-outlined mb-1" data-icon="chat_bubble">chat_bubble</span>
+    <span class="font-label-md text-label-md">Request</span>
+  </a>
+  <a class="flex flex-col items-center justify-center font-semibold active:scale-95 transition-transform duration-150 p-2 rounded-xl w-16 text-primary" href="#">
+    <div class="w-full h-8 flex items-center justify-center rounded-full mb-1 bg-primary/10">
+      <span class="material-symbols-outlined text-primary" data-icon="explore">explore</span>
+    </div>
+    <span class="font-label-md text-label-md text-primary">Discovery</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform duration-150 p-2 rounded-xl w-16" href="#">
+    <span class="material-symbols-outlined mb-1" data-icon="bolt">bolt</span>
+    <span class="font-label-md text-label-md">Execution</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform duration-150 p-2 rounded-xl w-16" href="#">
+    <span class="material-symbols-outlined mb-1" data-icon="receipt_long">receipt_long</span>
+    <span class="font-label-md text-label-md">Tracking</span>
+  </a>
+</nav>
+
+
+
+
+</body></html>
