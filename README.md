@@ -1,6 +1,6 @@
 # Agentic Service Orchestrator 🤖
 
-[![Deploy Status](https://img.shields.io/badge/Deploy-Production-success?logo=github-actions&logoColor=white)](.github/workflows/deploy.yml)
+[![Deploy Status](https://img.shields.io/badge/Deploy-Production-success?logo=github-actions&logoColor=white)](https://ai-service.sheikhshaheer.dev/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![LangChain](https://img.shields.io/badge/Orchestrator-LangChain%20%2F%20LangGraph-F2994A)](https://python.langchain.com)
 [![Expo](https://img.shields.io/badge/Frontend-React%20Native%20%2F%20Expo-000000?logo=expo&logoColor=white)](https://expo.dev)
